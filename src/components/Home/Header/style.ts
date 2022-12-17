@@ -69,6 +69,24 @@ export const StyledHeaderHome = styled.header`
     cursor: pointer;
     margin-left: 15px;
   }
+  .interation-user {
+    position: relative;
+  }
+  .countCart {
+    position: absolute;
+    right: 25%;
+    top: -35%;
+    width: 21px;
+    height: 23px;
+    background-color: #27ae60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+  }
   @media (min-width: 1440px) {
     .container-header {
       width: 1400px;
@@ -78,6 +96,16 @@ export const StyledHeaderHome = styled.header`
     .interation-user .iconSearch {
       display: none;
     }
+    .interation-user {
+      position: relative;
+    }
+
+    .countCart {
+      position: absolute;
+      right: 7%;
+      top: 10%;
+    }
+
     .inputHeader {
       display: flex;
       border: 2px solid #27ae60;

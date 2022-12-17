@@ -30,11 +30,16 @@ export const StyledContainerProducts = styled.div`
   }
   .imgArea {
     background-color: #f5f5f5;
-    height: fit-content;
+    height: 200px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .imgArea img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
   .text-card {
     padding-top: 20px;

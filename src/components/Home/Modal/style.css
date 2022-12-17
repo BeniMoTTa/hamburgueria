@@ -19,7 +19,7 @@
   background-color: #f5f5f5;
   margin-top: 15%;
   width: 96%;
-  max-height: 360px;
+  height: fit-content;
   border-radius: 4px;
 }
 .headerModal {
@@ -39,9 +39,10 @@
   font-size: 16px;
   background-color: transparent;
   font-weight: 700;
+  cursor: pointer;
 }
-@media (min-width: 450px) {
+@media (min-width: 510px) {
   .modal-content {
-    width: 430px;
+    width: 500px;
   }
 }

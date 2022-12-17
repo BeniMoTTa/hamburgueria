@@ -1,122 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledContainerProducts } from "./style";
-import hamburguer from "../Products/hamburguer.svg";
+
 import { StyledButtonAddProduct } from "../../../Styles/Buttons";
 
+import { CartContext } from "../../../context/CartContext";
+
 const CardProducts = () => {
+  const { addProductToCart, searchProducts } = useContext(CartContext);
+
   return (
     <StyledContainerProducts>
       <ul className="list-products">
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
-        <li className="card">
-          <div className="imgArea">
-            <img src={hamburguer} alt="" />
-          </div>
-          <div className="text-card">
-            <h5>Hamburguer</h5>
-            <p>Sanduíches</p>
-            <span>R$ 14,00</span>
-            <StyledButtonAddProduct>Adicionar</StyledButtonAddProduct>
-          </div>
-        </li>
+        {searchProducts?.map((element) => (
+          <li className="card" key={element.id}>
+            <div className="imgArea">
+              <img src={element.img} alt="" />
+            </div>
+            <div className="text-card">
+              <h5>{element.name}</h5>
+              <p>{element.category}</p>
+              <span>
+                {element.price.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+              <StyledButtonAddProduct onClick={() => addProductToCart(element)}>
+                Adicionar
+              </StyledButtonAddProduct>
+            </div>
+          </li>
+        ))}
       </ul>
     </StyledContainerProducts>
   );

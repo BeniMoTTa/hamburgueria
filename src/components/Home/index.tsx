@@ -6,7 +6,7 @@ import CardProducts from "./Products";
 import { StyledContainerHome } from "./style";
 
 const Home = () => {
-  const { openModal, modalIsOpen, closeModal } = useContext(CartContext);
+  const { modalIsOpen } = useContext(CartContext);
   return (
     <StyledContainerHome>
       <HeaderHome />

@@ -8,7 +8,7 @@ import { CartContext } from "../../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const HeaderHome = () => {
-  const { openModal } = useContext(CartContext);
+  const { openModal, setSearch, search } = useContext(CartContext);
   const navigate = useNavigate();
 
   function quitUserAccount() {
@@ -21,12 +21,20 @@ const HeaderHome = () => {
         <img src={logo} alt="logoSite" className="logoimg" />
         <div className="interation-user">
           <div className="inputHeader">
-            <input type="text" placeholder="Qual produto quer encontrar?" />
+            <input
+              type="text"
+              placeholder="Qual produto quer encontrar?"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
             <button>
               <BiSearchAlt2 className="iconActive" />
             </button>
           </div>
           <BiSearchAlt2 className="iconSearch" />
+          <div className="countCart">
+            <span>0</span>
+          </div>
           <BsFillCartFill className="icon" onClick={() => openModal()} />
           <TbLogout className="icon" onClick={() => quitUserAccount()} />
         </div>

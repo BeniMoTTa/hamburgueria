@@ -10,13 +10,6 @@ interface iAuthProviderProps {
   children: React.ReactNode;
 }
 
-interface iProducts {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  img: string;
-}
 interface iUser {
   email: string;
   name: string;
@@ -52,27 +45,10 @@ interface iResponseRegister {
 
 const UserProvider = ({ children }: iAuthProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
-  const [products, setProducts] = useState([] as iProducts[]);
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-
-  async function getProducts() {
-    const tokenValidate = localStorage.getItem("@TOKEN");
-
-    if (tokenValidate) {
-      try {
-        api.defaults.headers.authorization = `Bearer ${tokenValidate}`;
-        const { data } = await api.get("/products");
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-      }
-    } else if (!tokenValidate) {
-      navigate("/");
-    }
-  }
 
   const login = async (data: iLoginData) => {
     try {

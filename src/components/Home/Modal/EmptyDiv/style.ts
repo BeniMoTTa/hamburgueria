@@ -6,7 +6,8 @@ export const StyledEmptyDiv = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 30px;
+  height: 250px;
+  width: 100%;
 
   h4 {
     font-size: 20px;

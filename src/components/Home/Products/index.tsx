@@ -25,6 +25,7 @@ const CardProducts = () => {
                   currency: "BRL",
                 })}
               </span>
+
               <StyledButtonAddProduct onClick={() => addProductToCart(element)}>
                 Adicionar
               </StyledButtonAddProduct>

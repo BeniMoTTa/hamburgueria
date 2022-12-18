@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import InputMobile from "../components/Home/Header/InputMobile";
 
 import { api } from "../lib/axiosClient";
 
@@ -18,6 +19,9 @@ interface iContexxtProps {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   search: string;
   searchProducts: iProducts[];
+  clickMobile: () => void;
+
+  hiddenSearch: boolean;
 }
 
 interface iCart {
@@ -26,7 +30,9 @@ interface iCart {
   price: number;
   img: string;
 }
-
+interface iCLick {
+  click: boolean;
+}
 interface iProducts {
   id: number;
   name: string;
@@ -45,6 +51,15 @@ export const CartProvider = ({ children }: iChildrenProps) => {
   const [cart, setCart] = useState([] as iCart[]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [hiddenSearch, setHiddenSearch] = useState(false);
+
+  function clickMobile() {
+    if (hiddenSearch === true) {
+      setHiddenSearch(false);
+    } else {
+      setHiddenSearch(true);
+    }
+  }
 
   useEffect(() => {
     async function getProducts() {
@@ -120,6 +135,8 @@ export const CartProvider = ({ children }: iChildrenProps) => {
         setSearch,
         search,
         searchProducts,
+        clickMobile,
+        hiddenSearch,
       }}
     >
       {children}

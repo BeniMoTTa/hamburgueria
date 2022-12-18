@@ -8,7 +8,7 @@ export const StyledCartTotal = styled.div`
   flex-direction: column;
   border-top: 2px solid #e0e0e0;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-radius: 0px 0px 8px 8px;
   padding-bottom: 10px;
 

@@ -6,9 +6,11 @@ import { BsFillCartFill } from "react-icons/bs";
 import { TbLogout } from "react-icons/tb";
 import { CartContext } from "../../../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import InputMobile from "./InputMobile";
 
 const HeaderHome = () => {
-  const { openModal, setSearch, search } = useContext(CartContext);
+  const { openModal, setSearch, search, clickMobile, hiddenSearch } =
+    useContext(CartContext);
   const navigate = useNavigate();
 
   function quitUserAccount() {
@@ -31,7 +33,8 @@ const HeaderHome = () => {
               <BiSearchAlt2 className="iconActive" />
             </button>
           </div>
-          <BiSearchAlt2 className="iconSearch" />
+          <BiSearchAlt2 className="iconSearch" onClick={() => clickMobile()} />
+          {hiddenSearch === true && <InputMobile />}
           <div className="countCart">
             <span>0</span>
           </div>

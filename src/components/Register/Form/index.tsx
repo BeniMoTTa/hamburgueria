@@ -16,7 +16,7 @@ interface iRegisterFormValues {
 }
 
 const FormRegister = () => {
-  const { currentRegister, setLoading, loading } = useContext(UserContext);
+  const { currentRegister } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -33,7 +33,6 @@ const FormRegister = () => {
   });
   const submit: SubmitHandler<iRegisterFormValues> = async (data) => {
     const response = { ...data };
-    console.log(response);
     currentRegister(response);
     reset();
   };
@@ -46,9 +45,8 @@ const FormRegister = () => {
         type="text"
         placeholder="Escreva seu nome!"
         register={register("name")}
-        error={errors}
       />
-
+      {errors.name && <p>{errors.name.message}</p>}
       <InputsRegister
         id="email"
         label="Email"

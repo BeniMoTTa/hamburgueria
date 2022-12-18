@@ -8,6 +8,8 @@ export const StyledCart = styled.ul`
   align-items: center;
   flex-direction: column;
   padding-left: 15px;
+  max-height: 450px;
+  overflow: auto;
 
   li {
     width: 100%;

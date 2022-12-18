@@ -47,6 +47,7 @@ const FormLogin = () => {
         placeholder="Digite aqui seu nome"
         register={register("email")}
       />
+      {errors.email && <p>{errors.email.message}</p>}
       <Inputs
         id="password"
         label="Senha"
@@ -54,7 +55,7 @@ const FormLogin = () => {
         placeholder="Digite aqui sua senha"
         register={register("password")}
       />
-
+      {errors.password && <p>{errors.password.message}</p>}
       <StyledButtonLoginEnter>Logar</StyledButtonLoginEnter>
       <div>
         <span>

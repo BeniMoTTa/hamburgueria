@@ -18,4 +18,8 @@ export const StyledFormLogin = styled.form`
     color: #999999;
     font-size: 14px;
   }
+  p {
+    color: red;
+    transform: translateY(-20px);
+  }
 `;

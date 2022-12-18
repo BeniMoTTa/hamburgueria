@@ -10,6 +10,9 @@ export const GlobalStyles = createGlobalStyle`
     height: 100vh;
     
   }
+  button{
+    cursor: pointer;
+  }
   ul {
     list-style: none;
     padding: none;

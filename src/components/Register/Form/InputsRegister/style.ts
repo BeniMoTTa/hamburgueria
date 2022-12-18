@@ -28,8 +28,8 @@ export const FieldSetRegister = styled.fieldset`
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 8px;
-  margin-bottom: 35px;
   align-items: center;
+  margin-bottom: 30px;
   justify-content: center;
   height: 60px;
   position: relative;

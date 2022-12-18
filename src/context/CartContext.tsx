@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import InputMobile from "../components/Home/Header/InputMobile";
 
 import { api } from "../lib/axiosClient";
 
@@ -30,9 +29,7 @@ interface iCart {
   price: number;
   img: string;
 }
-interface iCLick {
-  click: boolean;
-}
+
 interface iProducts {
   id: number;
   name: string;
